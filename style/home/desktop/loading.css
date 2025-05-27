@@ -1,0 +1,83 @@
+/*loading.css*/
+/* CSS per il video di sfondo */
+.video_background {
+  position: fixed; /* Fissa il video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Manda il video dietro gli altri elementi */
+  overflow: hidden;
+  transition: opacity 1s ease-in-out;
+}
+#video_background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adatta il video per coprire l'intero schermo */
+}
+/* CSS per il contenitore della scena Three.js */
+.threejs-container {
+  width: 100%;
+  height: 100vh; /* Occupa l'intera altezza della finestra */
+  background-color: transparent; /* Sfondo trasparente per vedere il video */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+/* Main content transitions */
+.first,
+footer,
+button {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+/* Show content when loaded */
+body.loaded .video_background,
+body.loaded .threejs-container,
+body.loaded .first,
+body.loaded footer,
+body.loaded button {
+  opacity: 1;
+}
+/* Loading overlay styles */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease-in-out;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #333;
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-text {
+  color: white;
+  font-size: 1.2em;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

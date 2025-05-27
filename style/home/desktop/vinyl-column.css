@@ -1,0 +1,98 @@
+#threejs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+#threejs-container canvas {
+    pointer-events: auto;
+}
+.sticky-wrapper {
+    position: relative;
+    height: 300vh;
+}
+#loading-overlay {
+    transition: opacity 0.8s ease;
+}
+.loading-text {
+    transition: opacity 0.3s ease;
+}
+body.loaded #loading-overlay {
+    opacity: 0;
+}
+/*--------- bottoni link------------*/
+.social-buttons-container a {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.social-buttons-container a:hover {
+    transform: translateX(5px); /* Changed from translateY to translateX for horizontal hover effect */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.social-buttons-container a i {
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+.social-buttons-container a:hover i {
+    transform: scale(1.2);
+}
+/* Specific colors for each platform */
+.instagram-link:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.spotify-link:hover {
+    background: #1DB954;
+}
+.apple-music-link:hover {
+    background: #FC3C44;
+}
+/*--------------- scroll indicator ---------------*/
+.scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    animation: scrollLine 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes scrollLine {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+/* Fade out when scrolled */
+.scroll-indicator.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+} 
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }

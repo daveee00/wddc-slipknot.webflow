@@ -1,0 +1,101 @@
+/*index.css*/
+* {
+    font-family: monospace;
+  }
+  body {
+    background: black;
+    margin: 0;
+    padding: 0;
+  }
+  .video-background {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    overflow: hidden;
+  }
+  #video_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover; /* Copre l'intera area senza distorcere il video */
+    z-index: -1;
+    opacity: calc(20%);
+  }
+  button {
+    background: transparent;
+    font-family: monospace;
+    position: fixed;
+    border: none;
+    left: 0;
+    top: 0;
+    z-index: +10;
+    box-shadow: none;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    padding-left: 0.6%;
+    padding-right: 0.6%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .threejs-container {
+    position: sticky !important;
+    width: 100% !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    z-index: 2 !important;
+    background-color: transparent;
+    top:0; 
+  }
+  /* Add a wrapper to control the sticky section length */
+  .sticky-wrapper {
+    height: 300vh; /* This controls how long the sticky effect lasts - adjust as needed */
+    position: relative;
+    z-index: 5;
+  }
+  /*–––––––––––––––––––––––––––––––––––––––––––––––logo–––––––––––––––––––––––––––––––––––––––––––––––*/
+  .main_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100vw;
+    z-index: 3;
+    position: fixed;
+    opacity: calc(30%);
+    color: white;
+  }
+  .main_logo:hover {
+    opacity: calc(100%);
+    cursor: pointer;
+  }
+  /*–––––––––––––––––––––––––––––––––––––––––––––––footer–––––––––––––––––––––––––––––––––––––––––––––––*/
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: transparent;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+  }
+  footer a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  #footer_credits {
+    transition: .3s;
+  }
+  #footer_credits:hover {
+    text-decoration: underline;
+  } 
+  

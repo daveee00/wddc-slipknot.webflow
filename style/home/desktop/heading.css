@@ -1,0 +1,42 @@
+/*––––––––––––––––––––––––––––––––––––––heading.css––––––––––––––––––––––––––––––––––––––––––––*/
+body {
+width: 100vw;}
+.first {
+  display: flex;
+  align-items: center;
+  height: 100vh; /* o l'altezza che preferisci */
+  position: relative;
+}
+.first h1 {
+  letter-spacing: 2%;
+  font-size: 4em;
+}
+.sopra,
+.sotto {
+  position: absolute;
+  text-align: center;
+}
+.sotto {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#sopra {
+  width: 100vw;
+  height: 100vh;
+}
+#sopra canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block; /* Per rimuovere eventuali margini */
+  opacity: calc(100%);
+}
+.sotto h1 {
+  color: white;
+  font-size: 10em;
+  letter-spacing: -5%;
+  position: relative;
+  top: -50%; /* regola per posizionare il testo sopra o sotto */
+  font-family: "Suisse Intl mono";
+}
