@@ -26,18 +26,18 @@
     let loadedModelCount = 0;
     // MODELS TO LOAD
     const modelsToLoad = [
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/es.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/dw.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/brighter_days_ahead.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/teller_01.glb",
-      "https://cdn.jsdelivr.net/gh/Silviapanciera/models@main/bda.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/clubDerVisionere.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/elsewhere.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/vena.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/forTheCause.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/goa.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/haudio.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/hor.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/lesEnfants.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/theLotRadio.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/radioPirate.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/teller.glb",
+      "https://cdn.jsdelivr.net/gh/daveee00/export_blender/teknoBirrette.glb",
     ];
     // PAGE LINKS
     const pageLinks = [
