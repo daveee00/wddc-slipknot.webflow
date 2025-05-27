@@ -69,6 +69,21 @@
       "/images/titles-homepage/teknoBirrette_writing_background.png",
       "/images/titles-homepage/teller_writing_background.png",
     ];
+    // backgrounds for active page
+    const vinylBackground = [
+      "linear-gradient(270deg, #EEDC9A, #F5EEC0, #D6BB7D)",
+      "linear-gradient(270deg, #5614ca, #8f4dff, #3600a3)",
+      "linear-gradient(270deg, #ECE7DC, #ffffff, #dcd4c0)",
+      "linear-gradient(270deg, #FE6845, #fcb199, #ff2e00)",
+      "linear-gradient(270deg, #5270E5, #88a2ff, #1e3acc)",
+      "linear-gradient(270deg, #1e1e1e, #3a3a3a, #0a0a0a)",
+      "linear-gradient(270deg, #A6F30D, #d6ff63, #84c900)",
+      "linear-gradient(270deg, #FF0101, #ff6b6b, #a10000)",
+      "linear-gradient(270deg, #332879, #5942b1, #1a154e)",
+      "linear-gradient(270deg, #fed52a, #ffe788, #ffc400)",
+      "linear-gradient(270deg, #9223A8, #c758e2, #670078)",
+      "linear-gradient(270deg, #0C82A1, #3fc8f2, #00475a)",
+    ];
     // Add raycaster for click detection
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
@@ -223,7 +238,7 @@
       document.body.appendChild(button);
       const tooltip = document.createElement("div");
       tooltip.id = "button-tooltip";
-      tooltip.textContent = "view more";
+      tooltip.textContent = "discover";
       tooltip.style.position = "fixed";
       tooltip.style.display = "none";
       tooltip.style.padding = "5px 10px";
