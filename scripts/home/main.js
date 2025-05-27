@@ -414,6 +414,7 @@
           writingImage.style.height = "auto";
           writingImage.style.width = "auto";
           writingImage.style.maxHeight = "80vh";
+          writingImage.style.marginRight = "40px";
           writingImage.style.display = "inline-block";
           imageWrapper.appendChild(writingImage);
         }
