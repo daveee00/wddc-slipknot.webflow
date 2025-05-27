@@ -10,7 +10,7 @@
     <title>💿 record_me</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Webflow" name="generator"/>
+    <meta content="Webflow" name="generator" />
 
     <!--
 normalize.css v3.0.3 — Uniforma gli stili di default tra i browser,
@@ -26,7 +26,7 @@ Licenza MIT — https://github.com/necolas/normalize.css
       type="text/css"
     />
 
-<!--
+    <!--
 Aggiunge classi al tag <html> per indicare se JavaScript è attivo (w-mod-js)
 e se il dispositivo supporta il touch (w-mod-touch), utile per stili e comportamenti dinamici.
 -->
@@ -57,6 +57,7 @@ e se il dispositivo supporta il touch (w-mod-touch), utile per stili e comportam
     <link rel="stylesheet" href="/style/home/desktop/index.css" />
     <link rel="stylesheet" href="/style/home/desktop/loading.css" />
     <link rel="stylesheet" href="/style/home/desktop/vinyl-column.css" />
+    <link rel="stylesheet" href="/style/home/desktop/footer.css" />
   </head>
 
   <body>
@@ -110,8 +111,7 @@ e se il dispositivo supporta il touch (w-mod-touch), utile per stili e comportam
     <div class="ui-elements">
       <div class="scroll-indicator">
         <div class="scroll-text">Scroll</div>
-        <div class="scroll-line">
-        </div>
+        <div class="scroll-line"></div>
       </div>
       <div class="social-buttons-container">
         <a
@@ -148,6 +148,10 @@ e se il dispositivo supporta il touch (w-mod-touch), utile per stili e comportam
       <div class="sotto"></div>
       <div class="sopra"></div>
     </section>
+
+    <div class="closing-ui-elements">
+      <div class="text-link-tree"><div class="scroll-text">@GNMR</div></div>
+    </div>
 
     <script type="module" src="/scripts/home/main.js"></script>
     <script type="module" src="/scripts/home/opening.js"></script>

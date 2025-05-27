@@ -1,0 +1,36 @@
+.closing-ui-elements {
+    width: 99vw;
+    height: 99vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: last baseline;
+}
+
+.text-link-tree {
+    z-index: 1000;
+    opacity: .4;
+    pointer-events: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    gap: 1.5rem;
+    padding: 1%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  
+  .scroll-text {
+    color: #fff9;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transform-origin: 100%;
+    white-space: nowrap;
+    font-size: .8rem;
+    position: absolute;
+    top: 70%;
+    right: 3rem;
+    transform: rotate(90deg);
+  }
