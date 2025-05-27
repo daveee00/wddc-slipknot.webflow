@@ -78,7 +78,7 @@
           (gltf) => {
             const model = gltf.scene;
             model.scale.set(10, 10, 10);
-            const baseY = -index * 2;
+            const baseY = -index * 3;
             model.position.set(0, baseY, 0);
             model.userData.baseY = baseY;
             model.userData.offset = index * 0.3;
