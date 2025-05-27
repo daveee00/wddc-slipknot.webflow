@@ -59,6 +59,7 @@
       "/images/titles-homepage/clubDerVisionere_writing_background.png",
       "/images/titles-homepage/elsewhere_writing_background.png",
       "/images/titles-homepage/endovena_writing_background.png",
+      "/images/titles-homepage/forTheCause_writing_background.png",
       "/images/titles-homepage/goa_writing_background.png",
       "/images/titles-homepage/haudio_writing_background.png",
       "/images/titles-homepage/hor_writing_background.png",
