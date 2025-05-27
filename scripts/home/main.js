@@ -54,6 +54,20 @@
       "/performances/teller",
       "/performances/tekno-birrette",
     ];
+    // Writing backgrounds array - matching the order of pageLinks
+    const writingBackgrounds = [
+      "/images/titles-homepage/clubDerVisionere_writing_background.png",
+      "/images/titles-homepage/elsewhere_writing_background.png",
+      "/images/titles-homepage/endovena_writing_background.png",
+      "/images/titles-homepage/goa_writing_background.png",
+      "/images/titles-homepage/haudio_writing_background.png",
+      "/images/titles-homepage/hor_writing_background.png",
+      "/images/titles-homepage/lesEnfants_writing_background.png",
+      "/images/titles-homepage/lotradio_writing_background.png",
+      "/images/titles-homepage/radioPirate_writing_background.png",
+      "/images/titles-homepage/teknoBirrette_writing_background.png",
+      "/images/titles-homepage/teller_writing_background.png",
+    ];
     // Add raycaster for click detection
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
@@ -119,9 +133,7 @@
           const offset = model.userData.offset || 0;
           model.rotation.y =
             THREE.MathUtils.degToRad(180) +
-            THREE.MathUtils.degToRad(
-              15 * Math.sin(time * 1.4 - offset)
-            );
+            THREE.MathUtils.degToRad(15 * Math.sin(time * 1.4 - offset));
         }
       });
       renderer.render(scene, camera);
@@ -258,6 +270,11 @@
             duration: 1.5,
             ease: "power2.in",
           });
+          // Remove writing animation before navigation
+          const writingContainer = document.getElementById("writing-container");
+          if (writingContainer) {
+            writingContainer.remove();
+          }
           // Add a check to ensure the URL exists before navigating
           const targetUrl = button.href;
           console.log("Checking URL:", targetUrl);
@@ -272,9 +289,12 @@
             );
           }
         } else {
-          console.log(
-            "No active model found, attempting direct navigation"
-          );
+          console.log("No active model found, attempting direct navigation");
+          // Remove writing animation before navigation
+          const writingContainer = document.getElementById("writing-container");
+          if (writingContainer) {
+            writingContainer.remove();
+          }
           window.location.href = button.href;
         }
       });
@@ -296,6 +316,13 @@
       }
       removeNavigationButton();
       isModelClicked = false;
+
+      // Remove writing animation
+      const writingContainer = document.getElementById("writing-container");
+      if (writingContainer) {
+        writingContainer.remove();
+      }
+
       originalModelStates.forEach((state) => {
         gsap.to(state.model.position, {
           x: state.position.x,
@@ -352,14 +379,65 @@
       } else {
         container = document.getElementById("threejs-container");
       }
+
+      // Add scrolling writing background
+      const writingContainer = document.createElement("div");
+      writingContainer.id = "writing-container";
+      writingContainer.style.position = "fixed";
+      writingContainer.style.top = "0";
+      writingContainer.style.left = "0";
+      writingContainer.style.width = "100%";
+      writingContainer.style.height = "100vh";
+      writingContainer.style.zIndex = "0";
+      writingContainer.style.overflow = "hidden";
+      writingContainer.style.pointerEvents = "none";
+      writingContainer.style.display = "none"; // Initially hidden
+
+      // Create a wrapper for the images
+      const imageWrapper = document.createElement("div");
+      imageWrapper.style.position = "absolute";
+      imageWrapper.style.top = "50%";
+      imageWrapper.style.left = "50%";
+      imageWrapper.style.transform = "translate(-50%, -50%)";
+      imageWrapper.style.display = "flex";
+      imageWrapper.style.animation = "scrollWriting 20s linear infinite";
+      imageWrapper.style.whiteSpace = "nowrap";
+      imageWrapper.style.width = "300%"; // Make it wider to ensure full coverage
+
+      // Create two sets of images for seamless looping
+      for (let set = 0; set < 2; set++) {
+        for (let i = 0; i < 6; i++) {
+          const writingImage = document.createElement("img");
+          writingImage.src = "/images/teller_writing_background.png";
+          writingImage.style.opacity = "0.3";
+          writingImage.style.height = "auto";
+          writingImage.style.width = "auto";
+          writingImage.style.maxHeight = "80vh";
+          writingImage.style.display = "inline-block";
+          imageWrapper.appendChild(writingImage);
+        }
+      }
+
+      writingContainer.appendChild(imageWrapper);
+      document.body.appendChild(writingContainer);
+
+      // Add the animation keyframes
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes scrollWriting {
+          0% {
+            transform: translate(-50%, -50%);
+          }
+          100% {
+            transform: translate(-150%, -50%);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+
       const width = container.clientWidth;
       const height = container.clientHeight;
-      camera = new THREE.PerspectiveCamera(
-        35,
-        width / height,
-        0.25,
-        200
-      );
+      camera = new THREE.PerspectiveCamera(35, width / height, 0.25, 200);
       camera.position.set(0, 0, 45);
       camera.lookAt(0, 0, 0);
       scene = new THREE.Scene();
@@ -386,6 +464,67 @@
       checkContainerPosition();
     }
     /*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+    function createWritingAnimation(backgroundImage) {
+      // Remove any existing writing container first
+      const existingContainer = document.getElementById("writing-container");
+      if (existingContainer) {
+        existingContainer.remove();
+      }
+
+      // Create writing animation container
+      const writingContainer = document.createElement("div");
+      writingContainer.id = "writing-container";
+      writingContainer.style.position = "fixed";
+      writingContainer.style.top = "0";
+      writingContainer.style.left = "0";
+      writingContainer.style.width = "100%";
+      writingContainer.style.height = "100vh";
+      writingContainer.style.zIndex = "0";
+      writingContainer.style.overflow = "hidden";
+      writingContainer.style.pointerEvents = "none";
+      writingContainer.style.display = "flex";
+      writingContainer.style.alignItems = "center";
+      writingContainer.style.justifyContent = "center";
+
+      // Create a wrapper for the images
+      const imageWrapper = document.createElement("div");
+      imageWrapper.style.position = "relative";
+      imageWrapper.style.display = "flex";
+      imageWrapper.style.animation = "scrollWriting 20s linear infinite";
+      imageWrapper.style.whiteSpace = "nowrap";
+      imageWrapper.style.width = "300%";
+
+      // Create two sets of images for seamless looping
+      for (let set = 0; set < 2; set++) {
+        for (let i = 0; i < 6; i++) {
+          const writingImage = document.createElement("img");
+          writingImage.src = backgroundImage;
+          writingImage.style.opacity = "0.3";
+          writingImage.style.height = "auto";
+          writingImage.style.width = "auto";
+          writingImage.style.maxHeight = "80vh";
+          writingImage.style.display = "inline-block";
+          imageWrapper.appendChild(writingImage);
+        }
+      }
+
+      writingContainer.appendChild(imageWrapper);
+      document.body.appendChild(writingContainer);
+
+      // Add the animation keyframes
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes scrollWriting {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-66.666%);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
     function onModelClick(event) {
       const rect = renderer.domElement.getBoundingClientRect();
       mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
@@ -396,13 +535,16 @@
         isModelClicked = true;
         changeVideoBackground();
         let clickedModel = intersects[0].object;
-        while (
-          clickedModel.parent &&
-          !loadedModels.includes(clickedModel)
-        ) {
+        while (clickedModel.parent && !loadedModels.includes(clickedModel)) {
           clickedModel = clickedModel.parent;
         }
         const clickedIndex = loadedModels.indexOf(clickedModel);
+
+        // Create writing animation for the clicked model
+        createWritingAnimation(
+          writingBackgrounds[clickedModel.userData.originalIndex]
+        );
+
         storeModelStates();
         createActivePage();
         createNavigationButton(clickedModel.userData.originalIndex);
