@@ -465,6 +465,11 @@
       // Add ambient light for better overall illumination
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
       scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, .15);
+      dirLight.position.set (0,0,10);
+      scene.add(dirLight);
+
       loadModels(modelsToLoad);
       renderer = new THREE.WebGLRenderer({ alpha: true });
       renderer.setPixelRatio(window.devicePixelRatio);
