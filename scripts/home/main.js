@@ -66,8 +66,8 @@
       "/images/titles-homepage/lesEnfants_writing_background.png",
       "/images/titles-homepage/lotradio_writing_background.png",
       "/images/titles-homepage/radioPirate_writing_background.png",
-      "/images/titles-homepage/teknoBirrette_writing_background.png",
       "/images/titles-homepage/teller_writing_background.png",
+      "/images/titles-homepage/teknoBirrette_writing_background.png",
     ];
     // backgrounds for active page
     const vinylBackground = [

@@ -12,7 +12,7 @@
   camera.lookAt(0, 0, 0);
   scene = new THREE.Scene();
   // Lights
-  const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.5);
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.7);
   hemiLight.position.set(10, 0, 10);
   scene.add(hemiLight);
 
@@ -23,6 +23,10 @@
   const dirLight2 = new THREE.DirectionalLight(0xffffff, 1);
   dirLight.position.set(0, 1, -20);
   scene.add(dirLight2);
+
+  const dirLight3 = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(0, 1, 20);
+  scene.add(dirLight3);
 
   // Model loader
   const loader = new THREE.GLTFLoader();
@@ -58,7 +62,10 @@
   function animate() {
     requestAnimationFrame(animate);
     if (model) {
-      model.rotation.y -= 0.006; // Rotates the model
+      // Create a smooth oscillation using sine wave
+      // Using clock.getElapsedTime() for consistent timing
+      // Math.PI/4 (45 degrees) as the amplitude of oscillation
+      model.rotation.y = Math.PI/2 + Math.sin(clock.getElapsedTime() * 0.5) * Math.PI/4;
     }
     renderer.render(scene, camera);
   }
