@@ -24,6 +24,9 @@
     const loadedModels = [];
     const rotationSpeed = 0.5;
     let loadedModelCount = 0;
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     // MODELS TO LOAD
     const modelsToLoad = [
       "https://cdn.jsdelivr.net/gh/daveee00/export_blender/clubDerVisionere.glb",
@@ -99,6 +102,8 @@
         }
         setTimeout(hideLoadingOverlay, 500);
       }
+
+      //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
     }
     function loadModels(modelPaths) {
       const loader = new THREE.GLTFLoader();
@@ -141,6 +146,9 @@
         );
       });
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function animate() {
       const time = clock.getElapsedTime();
       const dt = clock.getDelta();
@@ -154,6 +162,9 @@
       });
       renderer.render(scene, camera);
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function onWindowResize() {
       const width = container.clientWidth;
       const height = container.clientHeight;
@@ -162,6 +173,9 @@
       renderer.setSize(width, height);
       checkContainerPosition();
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function checkContainerPosition() {
       const rect = container.getBoundingClientRect();
       const stickyWrapper = container.closest(".sticky-wrapper");
@@ -183,6 +197,9 @@
         }
       }
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function handleScroll() {
       checkContainerPosition();
       if (isScrollingEnabled) {
@@ -194,6 +211,9 @@
         lastScrollY = currentScrollY;
       }
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     /*blocco di codice da controllare se funziona*/
     function createActivePage() {
       const stickyWrapper = document.querySelector(".sticky-wrapper");
@@ -216,6 +236,9 @@
       stickyWrapper.appendChild(pageActive);
       closeBtn.addEventListener("click", handleClose);
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function storeModelStates() {
       originalModelStates = loadedModels.map((model) => ({
         model: model,
@@ -223,6 +246,9 @@
         rotation: model.rotation.clone(),
       }));
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function createNavigationButton(originalIndex) {
       const button = document.createElement("a");
       button.id = "go_to_page_button";
@@ -315,6 +341,9 @@
         }
       });
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function removeNavigationButton() {
       const button = document.getElementById("go_to_page_button");
       const tooltip = document.getElementById("button-tooltip");
@@ -325,6 +354,9 @@
         tooltip.remove();
       }
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function handleClose() {
       const pageActive = document.getElementById("page-active");
       if (pageActive) {
@@ -356,6 +388,9 @@
         });
       });
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function getRandomVideo() {
       const videos = [
         "/videos/pageActive/bda.mp4",
@@ -366,6 +401,9 @@
       ];
       return videos[Math.floor(Math.random() * videos.length)];
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function changeVideoBackground() {
       const videoElement = document.getElementById("video_background");
       if (videoElement) {
@@ -373,6 +411,9 @@
         videoElement.load();
       }
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function restoreDefaultVideo() {
       const videoElement = document.getElementById("video_background");
       if (videoElement) {
@@ -380,7 +421,9 @@
         videoElement.load();
       }
     }
-    /*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function init() {
       if (!document.getElementById("threejs-container")) {
         container = document.createElement("div");
@@ -466,8 +509,8 @@
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
       scene.add(ambientLight);
 
-      const dirLight = new THREE.DirectionalLight(0xffffff, .15);
-      dirLight.position.set (0,0,10);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 0.15);
+      dirLight.position.set(0, 0, 10);
       scene.add(dirLight);
 
       loadModels(modelsToLoad);
@@ -485,7 +528,9 @@
       window.addEventListener("mousemove", onMouseMove);
       checkContainerPosition();
     }
-    /*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function createWritingAnimation(backgroundImage) {
       // Remove any existing writing container first
       const existingContainer = document.getElementById("writing-container");
@@ -547,6 +592,9 @@
       `;
       document.head.appendChild(style);
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
     function onModelClick(event) {
       const rect = renderer.domElement.getBoundingClientRect();
       mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
@@ -598,6 +646,10 @@
         });
       }
     }
+
+    //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+    
     function onMouseMove(event) {
       const rect = renderer.domElement.getBoundingClientRect();
       mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
